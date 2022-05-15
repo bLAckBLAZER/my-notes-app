@@ -1,0 +1,40 @@
+.hero-img {
+  height: 80%;
+  width: 80%;
+}
+
+.hero-title {
+  color: var(--primary-color);
+  font-size: 3rem;
+  font-weight: var(--weight-bold);
+  margin: 3rem 0 5rem 0;
+}
+
+.hero-title span {
+  color: var(--secondary-color);
+}
+
+.hero-subtitle {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.hero-subtitle span {
+  color: var(--primary-color);
+}
+
+@media screen and (max-width: 640px) {
+  .grid-40-60 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-img {
+    order: -1;
+  }
+
+  #hero-nav {
+    align-items: center;
+  }
+}

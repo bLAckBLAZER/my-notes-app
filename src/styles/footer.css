@@ -1,0 +1,25 @@
+.footer {
+  background-color: var(--primary-color);
+  margin-top: 1rem;
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-color);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  width: 100%;
+  height: auto;
+}
+
+.footer-heading {
+  font-size: 1.25rem;
+  font-weight: var(--weight-medium);
+}
+
+.socials {
+  margin: 1rem 0;
+}
+
+.socials li {
+  display: inline;
+  padding: 1rem;
+}
