@@ -34,7 +34,16 @@
     order: -1;
   }
 
+  .hero-title {
+    margin: 3rem 0 1rem 0;
+  }
+
   #hero-nav {
     align-items: center;
+  }
+
+  #hero-nav .hero-subtitle,
+  #hero-nav .h4 {
+    text-align: center;
   }
 }
