@@ -3,8 +3,8 @@ import { useReducer } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Box } from "../../components";
 import { setUserDetailsReducer } from "../../reducers";
-// import { userSignup } from "../../utils/authenticationCalls";
-// import { useAuth, useData } from "../../contexts";
+import { userSignup } from "../../utils/authenticationCalls";
+import { useAuth } from "../../contexts";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const Signup = () => {
@@ -26,17 +26,15 @@ export const Signup = () => {
     showPassword,
   } = userDetails;
 
-  //   const navigate = useNavigate();
-  //   const { dispatchAuth } = useAuth();
+  const navigate = useNavigate();
+  const { dispatchAuth } = useAuth();
   //   const { dispatchData } = useData();
 
   return (
     <div className="auth flex-1">
       <Box className="mg-y-auto">
         <form
-        //   onSubmit={(e) =>
-        //     userSignup(e, userDetails, dispatchAuth, navigate, dispatchData)
-        //   }
+          onSubmit={(e) => userSignup(e, userDetails, dispatchAuth, navigate)}
         >
           <div className="h2 txt-center">Signup</div>
           <div className="width-100">
