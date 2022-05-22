@@ -1,0 +1,50 @@
+.navbar {
+  background-color: var(--pure-white);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.nav-logo img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.nav-heading {
+  font-family: var(--title-font-family);
+}
+
+.nav-actions {
+  color: var(--secondary-color);
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.navbar .input {
+  align-self: center;
+  width: 30%;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 640px) {
+  .navbar {
+    position: relative;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .nav-actions {
+    align-items: flex-start;
+  }
+
+  .nav-actions .btn {
+    margin: 0;
+  }
+
+  .navbar .input {
+    position: absolute;
+    top: 4rem;
+    width: 100%;
+  }
+}
