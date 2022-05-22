@@ -27,8 +27,14 @@
   border-radius: 1rem;
 }
 
-@media screen and (max-width: 640px) {
-  .navbar {
+@media screen and (max-width: 768px) {
+  .navbar #hamburger {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* .navbar {
     position: relative;
     justify-content: space-between;
     align-items: flex-start;
@@ -46,5 +52,9 @@
     position: absolute;
     top: 4rem;
     width: 100%;
+  } */
+
+  .nav-actions .nav-action-item:not(:last-child) {
+    display: none;
   }
 }

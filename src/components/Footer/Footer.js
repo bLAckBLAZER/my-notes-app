@@ -1,4 +1,5 @@
 import "../../styles/footer.css";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export const Footer = () => {
   return (
@@ -7,17 +8,17 @@ export const Footer = () => {
       <ul className="socials">
         <li>
           <a href="https://github.com/bLAckBLAZER">
-            <i className="fab fa-github fa-2x"></i>
+            <FaGithub size={20} />
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/omkarmj/">
-            <i className="fab fa-linkedin fa-2x"></i>
+            <FaLinkedin size={20} />
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/omjadhav85/">
-            <i className="fab fa-instagram fa-2x"></i>
+            <FaInstagram size={20} />
           </a>
         </li>
       </ul>

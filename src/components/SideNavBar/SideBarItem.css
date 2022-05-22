@@ -1,0 +1,32 @@
+.side-navbar {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 20%;
+  position: sticky;
+  top: 4rem;
+  height: auto;
+  z-index: 5;
+}
+
+.side-navbar a {
+  text-decoration: none;
+}
+
+.sidebar-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.sidebar-item:hover {
+  cursor: pointer;
+  background-color: var(--primary-btn-hover);
+}
+
+@media screen and (max-width: 768px) {
+  .side-navbar {
+    display: none;
+  }
+}
