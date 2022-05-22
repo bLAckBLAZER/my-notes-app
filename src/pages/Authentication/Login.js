@@ -2,23 +2,23 @@ import "./Authentication.css";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Box } from "../../components";
-// import { userLogin } from "../../utils/authenticationCalls";
-// import { useAuth, useData } from "../../contexts";
+import { userLogin } from "../../utils/authenticationCalls";
+import { useAuth } from "../../contexts";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  //   const { dispatchAuth } = useAuth();
+  const { dispatchAuth } = useAuth();
   //   const { dispatchData } = useData();
-  //   const navigate = useNavigate();
-  //   const location = useLocation();
-  //   const gotoPath = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const location = useLocation();
+  const gotoPath = location.state?.from?.pathname || "/";
 
   const testData = {
     email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    password: "adarshBalika123",
   };
 
   return (
@@ -78,17 +78,16 @@ export const Login = () => {
             <div className="flex-1">
               <button
                 className="btn btn-primary"
-                // onClick={(e) =>
-                //   userLogin(
-                //     e,
-                //     dispatchAuth,
-                //     email,
-                //     password,
-                //     navigate,
-                //     gotoPath,
-                //     dispatchData
-                //   )
-                // }
+                onClick={(e) =>
+                  userLogin(
+                    e,
+                    dispatchAuth,
+                    email,
+                    password,
+                    navigate,
+                    gotoPath
+                  )
+                }
               >
                 Login
               </button>
@@ -110,17 +109,16 @@ export const Login = () => {
           <div className="flex-1">
             <button
               className="btn btn-secondary"
-              //   onClick={(e) =>
-              //     userLogin(
-              //       e,
-              //       dispatchAuth,
-              //       testData.email,
-              //       testData.password,
-              //       navigate,
-              //       gotoPath,
-              //       dispatchData
-              //     )
-              //   }
+              onClick={(e) =>
+                userLogin(
+                  e,
+                  dispatchAuth,
+                  testData.email,
+                  testData.password,
+                  navigate,
+                  gotoPath
+                )
+              }
             >
               Login as guest
             </button>

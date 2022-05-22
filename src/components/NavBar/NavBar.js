@@ -1,7 +1,12 @@
 import "../../styles/navbar.css";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts";
+import { userLogout } from "../../utils/authenticationCalls";
 export const NavBar = ({ title, logo }) => {
+  const { authState, dispatchAuth } = useAuth();
+
+  const navigate = useNavigate();
+
   return (
     <nav className="navbar fixed">
       <Link to="/">
@@ -14,9 +19,18 @@ export const NavBar = ({ title, logo }) => {
       </Link>
       <ul className="nav-actions">
         <li className="nav-action-item">
-          <Link to="/login">
-            <button className="btn btn-primary">Login</button>
-          </Link>
+          {authState.token ? (
+            <button
+              className="btn btn-primary"
+              onClick={() => userLogout(dispatchAuth, navigate)}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-primary">Login</button>
+            </Link>
+          )}
         </li>
       </ul>
     </nav>

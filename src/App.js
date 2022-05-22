@@ -2,6 +2,7 @@ import "./styles/index.css";
 import { Routes, Route } from "react-router-dom";
 import { Homepage, Login, Signup, PageNotFound } from "./pages";
 import { NavBar, Footer } from "./components";
+import { Redirect, PrivateRoute } from "./router";
 import Logo from "./assets/images/notes-logo.png";
 
 const App = () => {
@@ -10,9 +11,15 @@ const App = () => {
       <NavBar title="Subtle Notes" logo={Logo} />
       <main className="flex-1 flex gap-1">
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route element={<Redirect />}>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Route>
+
+          <Route element={<PrivateRoute />}>
+            <Route path="/home" element={<h1>Home</h1>} />
+          </Route>
 
           <Route
             path="*"
