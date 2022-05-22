@@ -1,6 +1,6 @@
 import "./styles/index.css";
 import { Routes, Route } from "react-router-dom";
-import { Homepage, PageNotFound } from "./pages";
+import { Homepage, Login, Signup, PageNotFound } from "./pages";
 import { NavBar, Footer } from "./components";
 import Logo from "./assets/images/notes-logo.png";
 
@@ -11,6 +11,9 @@ const App = () => {
       <main className="flex-1 flex gap-1">
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
           <Route
             path="*"
             element={

@@ -1,0 +1,34 @@
+.auth .auth-actions {
+  display: flex;
+  flex-direction: row;
+  margin: 0.25rem 0;
+}
+
+.auth .auth-actions .btn {
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+.auth-actions a {
+  text-decoration: underline;
+}
+
+.auth .error-msg {
+  color: var(--error-red);
+}
+
+.auth .logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30vh;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.auth .box {
+  width: 60%;
+  background-color: inherit;
+}
