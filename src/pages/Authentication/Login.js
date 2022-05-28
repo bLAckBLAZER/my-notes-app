@@ -17,8 +17,8 @@ export const Login = () => {
   const gotoPath = location.state?.from?.pathname || "/";
 
   const testData = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshBalika123",
+    email: "omj@gmail.com",
+    password: "test123",
   };
 
   return (
