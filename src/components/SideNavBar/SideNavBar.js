@@ -8,7 +8,7 @@ export const SideNavBar = () => {
   return (
     <aside className="side-navbar">
       <NavLink
-        to="/home"
+        to="/dashboard"
         style={({ isActive }) => {
           return {
             backgroundColor: isActive && "#00a82d",
@@ -16,7 +16,7 @@ export const SideNavBar = () => {
           };
         }}
       >
-        <SideNavBarItem itemName="Home" itemIcon={<MdHome size={28} />} />
+        <SideNavBarItem itemName="Dashboard" itemIcon={<MdHome size={28} />} />
       </NavLink>
       <NavLink
         to="/archive"

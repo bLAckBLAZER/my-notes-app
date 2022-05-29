@@ -4,6 +4,7 @@ import { removeLocalStorage, setLocalStorage } from "./localStorageCalls";
 export const userLogin = async (
   event,
   dispatch,
+  dispatchData,
   email,
   password,
   navigate,
@@ -24,6 +25,8 @@ export const userLogin = async (
 
       setLocalStorage("token", encodedToken);
       setLocalStorage("user", foundUser, true);
+
+      dispatchData({ type: "SET_ALL_NOTES", payload: foundUser.notes });
 
       navigate(gotoPath);
     }
@@ -48,6 +51,7 @@ export const userSignup = async (
   event,
   { firstName, lastName, email, password },
   dispatch,
+  dispatchData,
   navigate
 ) => {
   event.preventDefault();
@@ -67,6 +71,8 @@ export const userSignup = async (
 
       setLocalStorage("token", encodedToken);
       setLocalStorage("user", foundUser, true);
+
+      dispatchData({ type: "SET_ALL_NOTES", payload: foundUser.notes });
 
       navigate("/");
     }

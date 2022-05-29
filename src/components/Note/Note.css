@@ -1,0 +1,41 @@
+.note-box {
+  width: 80%;
+  border: 1px solid black;
+  border-radius: var(--radius-extra-large);
+  padding: 0.5rem 1rem;
+}
+
+.note-box input[type="text"],
+.note-box .note-title {
+  padding: 1rem 0;
+  outline: none;
+  font-size: 1.2rem;
+  border: none;
+  background-color: inherit;
+  margin-bottom: 0.5rem;
+  font-weight: var(--weight-bold);
+}
+
+.note-box textarea {
+  outline: none;
+  border: none;
+  background-color: inherit;
+  overflow-y: scroll;
+  resize: none;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.note-box .note-text {
+  font-size: 1rem;
+}
+
+.note-box i {
+  border-radius: var(--radius-rounded);
+  padding: 0.3rem;
+}
+
+.note-box i:hover {
+  background-color: var(--default-hover-background);
+  cursor: pointer;
+}

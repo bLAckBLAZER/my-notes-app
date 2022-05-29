@@ -8,6 +8,7 @@
   --background-color: #f7f7f7;
   --title-font-family: "Dancing Script", cursive;
   --primary-btn-hover: #14cc45;
+  --default-hover-background: #e5e7eb;
 }
 
 body {
@@ -17,7 +18,8 @@ body {
 }
 
 input,
-button {
+button,
+textarea {
   font-family: inherit;
 }
 
@@ -51,4 +53,17 @@ a {
   background-color: var(--text-color);
   border-radius: 20px;
   margin-top: 1.5rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
 }
