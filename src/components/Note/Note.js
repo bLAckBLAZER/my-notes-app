@@ -1,12 +1,5 @@
 import "./Note.css";
-import {
-  MdPushPin,
-  MdOutlineColorLens,
-  MdLabelOutline,
-  MdOutlineArchive,
-  MdOutlineDeleteOutline,
-  MdOutlineModeEditOutline,
-} from "react-icons/md";
+import { MdPushPin } from "react-icons/md";
 import { Chip } from "../Chip/Chip";
 
 export const Note = ({ note, noteActions }) => {
