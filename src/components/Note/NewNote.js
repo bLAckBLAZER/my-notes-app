@@ -1,6 +1,5 @@
 import "./Note.css";
 import { MdPushPin } from "react-icons/md";
-import { useState } from "react";
 import { defaultNewNoteData } from "./defaultNewNoteData";
 import { addNewNote, updateNote } from "../../utils/noteServerCalls";
 import { useData, useAuth, useLoader } from "../../contexts";
@@ -11,10 +10,7 @@ export const NewNote = ({
   updateMode,
   setUpdateMode,
 }) => {
-  const {
-    dataState: { userNotes },
-    dispatchData,
-  } = useData();
+  const { dispatchData } = useData();
 
   const {
     authState: { token },
