@@ -46,6 +46,7 @@ export const NewNote = ({
         setIsLoading,
         token
       );
+
       if (res === 201) {
         setNewNoteData(defaultNewNoteData);
       }
