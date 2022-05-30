@@ -22,18 +22,21 @@ export const NewNote = ({
 
   const { setIsLoading } = useLoader();
 
-  const createNewNoteHandler = (event) => {
+  const createNewNoteHandler = async (event) => {
     event.preventDefault();
 
     if (updateMode) {
-      updateNote(
+      const res = await updateNote(
         newNoteData,
-        setNewNoteData,
-        setUpdateMode,
         dispatchData,
         setIsLoading,
         token
       );
+
+      if (res === 201) {
+        setNewNoteData(defaultNewNoteData);
+        setUpdateMode(false);
+      }
     } else {
       const noteToAdd = {
         ...newNoteData,
@@ -41,7 +44,15 @@ export const NewNote = ({
         updatedAt: Date.now(),
       };
 
-      addNewNote(noteToAdd, setNewNoteData, dispatchData, setIsLoading, token);
+      const res = await addNewNote(
+        noteToAdd,
+        dispatchData,
+        setIsLoading,
+        token
+      );
+      if (res === 201) {
+        setNewNoteData(defaultNewNoteData);
+      }
     }
   };
 

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { defaultNewNoteData } from "../components/Note/defaultNewNoteData";
 // import { isPresentInList } from "./helperFunctions";
 import toast from "react-hot-toast";
 
@@ -26,13 +25,7 @@ export const getAllNotes = async (dispatchData, setIsLoading, token) => {
   }
 };
 
-export const addNewNote = async (
-  note,
-  setNewNoteData,
-  dispatchData,
-  setIsLoading,
-  token
-) => {
+export const addNewNote = async (note, dispatchData, setIsLoading, token) => {
   try {
     setIsLoading(true);
     const res = await axios({
@@ -47,11 +40,12 @@ export const addNewNote = async (
     });
 
     if (res.status === 201) {
-      setNewNoteData(defaultNewNoteData);
       dispatchData({ type: "SET_ALL_NOTES", payload: res.data.notes });
       toast.success("Note added successfully", {
         position: "bottom-center",
       });
+
+      return res.status;
     } else {
       console.error("add new note call failed with status: ", res.status);
       toast.error("Oops! Failed to add new note!", {
@@ -69,13 +63,13 @@ export const addNewNote = async (
 };
 
 export const updateNote = async (
-  note,
-  setNewNoteData,
-  setUpdateMode,
+  noteToUpdate,
   dispatchData,
   setIsLoading,
   token
 ) => {
+  const note = { ...noteToUpdate, updatedAt: Date.now() };
+
   try {
     setIsLoading(true);
     const res = await axios({
@@ -90,13 +84,12 @@ export const updateNote = async (
     });
 
     if (res.status === 201) {
-      setNewNoteData(defaultNewNoteData); // to clear the enter note screen
-      setUpdateMode(false);
-
       dispatchData({ type: "SET_ALL_NOTES", payload: res.data.notes });
       toast.success("Note updated successfully", {
         position: "bottom-center",
       });
+
+      return res.status;
     } else {
       console.error("update note call failed with status: ", res.status);
       toast.error("Oops! Failed to update note!", {
