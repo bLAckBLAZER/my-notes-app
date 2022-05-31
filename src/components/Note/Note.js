@@ -4,7 +4,7 @@ import { Chip } from "../Chip/Chip";
 import { updateNote } from "../../utils/noteServerCalls";
 import { useAuth, useData, useLoader } from "../../contexts";
 
-export const Note = ({ note, noteActions }) => {
+export const Note = ({ note, noteActions, isTrashed, isArchived }) => {
   const date = new Date(note.updatedAt);
 
   const { dispatchData } = useData();
@@ -18,18 +18,20 @@ export const Note = ({ note, noteActions }) => {
       <div className="flex flex-col gap-1">
         <div className="flex justify-between align-ctr">
           <div className="note-title">{note.title}</div>
-          <i
-            onClick={() =>
-              updateNote(
-                { ...note, isPinned: !note.isPinned },
-                dispatchData,
-                setIsLoading,
-                token
-              )
-            }
-          >
-            <MdPushPin size={20} color={note.isPinned ? "00a82d" : "black"} />
-          </i>
+          {!isTrashed && !isArchived && (
+            <i
+              onClick={() =>
+                updateNote(
+                  { ...note, isPinned: !note.isPinned },
+                  dispatchData,
+                  setIsLoading,
+                  token
+                )
+              }
+            >
+              <MdPushPin size={20} color={note.isPinned ? "00a82d" : "black"} />
+            </i>
+          )}
         </div>
         <div className="note-text">{note.noteText}</div>
         <div className="flex flex-wrap gap-half">

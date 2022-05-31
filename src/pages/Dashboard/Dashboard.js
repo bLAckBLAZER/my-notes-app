@@ -1,6 +1,6 @@
 import { NewNote, Note } from "../../components";
 import "./Dashboard.css";
-import { useData } from "../../contexts";
+import { useAuth, useData, useLoader } from "../../contexts";
 import {
   MdOutlineColorLens,
   MdLabelOutline,
@@ -10,11 +10,19 @@ import {
 } from "react-icons/md";
 import { useState } from "react";
 import { defaultNewNoteData } from "../../components/Note/defaultNewNoteData";
+import { moveToTrash } from "../../utils/noteServerCalls";
 
 export const Dashboard = () => {
   const {
+    authState: { token },
+  } = useAuth();
+
+  const {
     dataState: { userNotes },
+    dispatchData,
   } = useData();
+
+  const { setIsLoading } = useLoader();
 
   const [newNoteData, setNewNoteData] = useState(defaultNewNoteData);
   const [updateMode, setUpdateMode] = useState(false);
@@ -47,8 +55,9 @@ export const Dashboard = () => {
     },
     {
       icon: <MdOutlineDeleteOutline size={20} />,
-      onClickAction: () => console.log("delete click"),
-      title: "Delete",
+      onClickAction: (note) =>
+        moveToTrash(note, dispatchData, setIsLoading, token),
+      title: "Move to trash",
     },
   ];
 
