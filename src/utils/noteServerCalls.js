@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { isPresentInList } from "./helperFunctions";
 import toast from "react-hot-toast";
 
 export const getAllNotes = async (dispatchData, setIsLoading, token) => {
