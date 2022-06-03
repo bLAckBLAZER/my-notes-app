@@ -247,3 +247,156 @@ export const restoreFromTrash = async (
     setIsLoading(false);
   }
 };
+
+export const moveToArchive = async (
+  note,
+  dispatchData,
+  setIsLoading,
+  token
+) => {
+  try {
+    setIsLoading(true);
+    const res = await axios({
+      method: "post",
+      url: `/api/notes/archives/${note._id}`,
+      headers: {
+        authorization: token,
+      },
+    });
+
+    if (res.status === 201) {
+      dispatchData({ type: "SET_ALL_NOTES", payload: res.data.notes });
+
+      dispatchData({ type: "SET_ARCHIVE", payload: res.data.archives });
+
+      toast.success("Note archived!!!", {
+        position: "bottom-center",
+      });
+
+      return res.status;
+    } else {
+      console.error("archive note call failed with status: ", res.status);
+      toast.error("Oops! Failed to archive note!", {
+        position: "bottom-center",
+      });
+    }
+  } catch (err) {
+    console.error("Error archiving note", err);
+    toast.error("Oops! Failed to archive the note!", {
+      position: "bottom-center",
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+export const getAllArchive = async (dispatchData, setIsLoading, token) => {
+  try {
+    setIsLoading(true);
+    const res = await axios({
+      method: "get",
+      url: "/api/archives",
+      headers: {
+        authorization: token,
+      },
+    });
+
+    if (res.status === 200) {
+      dispatchData({ type: "SET_ARCHIVE", payload: res.data.archives });
+    } else {
+      console.error("get all archives call failed with status: ", res.status);
+    }
+  } catch (err) {
+    console.error("Error getting all archived notes", err);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+export const restoreFromArchive = async (
+  note,
+  dispatchData,
+  setIsLoading,
+  token
+) => {
+  try {
+    setIsLoading(true);
+    const res = await axios({
+      method: "post",
+      url: `/api/archives/restore/${note._id}`,
+      headers: {
+        authorization: token,
+      },
+    });
+
+    if (res.status === 200) {
+      dispatchData({ type: "SET_ALL_NOTES", payload: res.data.notes });
+
+      dispatchData({ type: "SET_ARCHIVE", payload: res.data.archives });
+
+      toast.success("Note successfully restored!", {
+        position: "bottom-center",
+      });
+
+      return res.status;
+    } else {
+      console.error(
+        "restore archives note call failed with status: ",
+        res.status
+      );
+      toast.error("Oops! Failed to restore archived note!", {
+        position: "bottom-center",
+      });
+    }
+  } catch (err) {
+    console.error("Error restoring archived note", err);
+    toast.error("Oops! Failed to restore the archived note!", {
+      position: "bottom-center",
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+export const deleteFromArchive = async (
+  note,
+  dispatchData,
+  setIsLoading,
+  token
+) => {
+  try {
+    setIsLoading(true);
+    const res = await axios({
+      method: "delete",
+      url: `/api/archives/delete/${note._id}`,
+      headers: {
+        authorization: token,
+      },
+    });
+
+    if (res.status === 200) {
+      dispatchData({ type: "SET_ARCHIVE", payload: res.data.archives });
+
+      toast.success("Note deleted from archive!!!", {
+        position: "bottom-center",
+      });
+
+      return res.status;
+    } else {
+      console.error(
+        "delete from archive call failed with status: ",
+        res.status
+      );
+      toast.error("Oops! Failed to delete from archive!", {
+        position: "bottom-center",
+      });
+    }
+  } catch (err) {
+    console.error("Error deleting from archive", err);
+    toast.error("Oops! Failed to delete from archive!", {
+      position: "bottom-center",
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
