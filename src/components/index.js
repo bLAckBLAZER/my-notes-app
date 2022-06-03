@@ -6,6 +6,8 @@ export { Input } from "./Input/Input";
 export { SideNavBar } from "./SideNavBar/SideNavBar";
 export { Hamburger } from "./Hamburger/Hamburger";
 export { Note } from "./Note/Note";
+export { TrashNote } from "./Note/TrashNote";
+export { ArchiveNote } from "./Note/ArchiveNote";
 export { NewNote } from "./Note/NewNote";
 export { Loader } from "./Loaders/Loader";
 export { Chip } from "./Chip/Chip";
