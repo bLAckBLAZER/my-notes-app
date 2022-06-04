@@ -37,12 +37,7 @@ export const NavBar = ({ title, logo }) => {
             </Link>
           )}
         </li>
-        <li
-          className="nav-action-item"
-          onClick={() => setShowSideBar(!showSideBar)}
-        >
-          <Hamburger />
-        </li>
+        <Hamburger onClickAction={() => setShowSideBar(!showSideBar)} />
       </ul>
       {showSideBar && (
         <SideBar

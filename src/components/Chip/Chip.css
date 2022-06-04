@@ -1,0 +1,11 @@
+.chip {
+  border-radius: 10rem;
+  background-color: var(--inactive-color);
+  color: var(--pure-white);
+  padding: 0.5rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.chip.active {
+  background-color: var(--primary-color);
+}

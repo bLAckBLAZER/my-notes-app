@@ -5,3 +5,7 @@ export { Box } from "./Box/Box";
 export { Input } from "./Input/Input";
 export { SideNavBar } from "./SideNavBar/SideNavBar";
 export { Hamburger } from "./Hamburger/Hamburger";
+export { Note } from "./Note/Note";
+export { NewNote } from "./Note/NewNote";
+export { Loader } from "./Loaders/Loader";
+export { Chip } from "./Chip/Chip";

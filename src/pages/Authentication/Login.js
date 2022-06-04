@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Box } from "../../components";
 import { userLogin } from "../../utils/authenticationCalls";
-import { useAuth } from "../../contexts";
+import { useAuth, useData } from "../../contexts";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const Login = () => {
@@ -11,7 +11,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { dispatchAuth } = useAuth();
-  //   const { dispatchData } = useData();
+  const { dispatchData } = useData();
   const navigate = useNavigate();
   const location = useLocation();
   const gotoPath = location.state?.from?.pathname || "/";
@@ -82,6 +82,7 @@ export const Login = () => {
                   userLogin(
                     e,
                     dispatchAuth,
+                    dispatchData,
                     email,
                     password,
                     navigate,
@@ -113,6 +114,7 @@ export const Login = () => {
                 userLogin(
                   e,
                   dispatchAuth,
+                  dispatchData,
                   testData.email,
                   testData.password,
                   navigate,
