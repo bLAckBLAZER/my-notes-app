@@ -1,0 +1,11 @@
+.hamburger {
+  display: none;
+}
+
+.hamburger div {
+  width: 2rem;
+  height: 4px;
+  background-color: var(--secondary-color);
+  margin: 6px 0;
+  border-radius: var(--radius);
+}

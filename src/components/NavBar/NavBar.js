@@ -1,9 +1,14 @@
 import "../../styles/navbar.css";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts";
 import { userLogout } from "../../utils/authenticationCalls";
+import { Hamburger } from "../Hamburger/Hamburger";
+import { SideBar } from "./SideBar";
+
 export const NavBar = ({ title, logo }) => {
   const { authState, dispatchAuth } = useAuth();
+  const [showSideBar, setShowSideBar] = useState(false);
 
   const navigate = useNavigate();
 
@@ -32,7 +37,21 @@ export const NavBar = ({ title, logo }) => {
             </Link>
           )}
         </li>
+        <li
+          className="nav-action-item"
+          onClick={() => setShowSideBar(!showSideBar)}
+        >
+          <Hamburger />
+        </li>
       </ul>
+      {showSideBar && (
+        <SideBar
+          setShowSideBar={setShowSideBar}
+          userLogout={userLogout}
+          dispatchAuth={dispatchAuth}
+          authState={authState}
+        />
+      )}
     </nav>
   );
 };
