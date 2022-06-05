@@ -14,7 +14,7 @@ export const TrashNote = ({ note }) => {
   const { setIsLoading } = useLoader();
 
   return (
-    <div className="note-box">
+    <div className="note-box" style={{ backgroundColor: note.backgroundColor }}>
       <div className="flex flex-col gap-1">
         <div className="flex justify-between align-ctr">
           <div className="note-title">{note.title}</div>

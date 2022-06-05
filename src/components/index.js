@@ -11,3 +11,6 @@ export { ArchiveNote } from "./Note/ArchiveNote";
 export { NewNote } from "./Note/NewNote";
 export { Loader } from "./Loaders/Loader";
 export { Chip } from "./Chip/Chip";
+export { LabelBox } from "./Labels/LabelBox";
+export { Label } from "./Labels/Label";
+export { ColorBox } from "./ColorBox/ColorBox";

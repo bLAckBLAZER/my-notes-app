@@ -36,6 +36,27 @@
 }
 
 .note-box i:hover {
-  background-color: var(--default-hover-background);
+  background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+.note-box .menu-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 0.9rem;
+  padding: 1rem;
+  width: 12rem;
+  background-color: var(--light-primary-color);
+  border-radius: var(--radius);
+  z-index: 2;
+}
+
+.note-box .menu-box input[type="text"] {
+  font-size: 0.9rem;
+}
+
+.note-box .menu-box .avatar-sm {
+  height: 1.5rem;
+  width: 1.5rem;
 }
