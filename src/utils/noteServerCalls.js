@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { isPresentInList } from "./helperFunctions";
 import toast from "react-hot-toast";
 
 export const getAllNotes = async (dispatchData, setIsLoading, token) => {
@@ -20,6 +19,9 @@ export const getAllNotes = async (dispatchData, setIsLoading, token) => {
     }
   } catch (err) {
     console.error("Error getting all notes", err);
+    toast.error("Error getting all notes!", {
+      position: "bottom-center",
+    });
   } finally {
     setIsLoading(false);
   }
