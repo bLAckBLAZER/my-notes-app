@@ -6,6 +6,8 @@ export const dataReducer = (state, { type, payload }) => {
       return { ...state, userNotes: payload };
     case "SET_TRASH":
       return { ...state, userTrash: payload };
+    case "SET_ARCHIVE":
+      return { ...state, userArchive: payload };
     case "RESET":
       return defaultDataState;
     default:

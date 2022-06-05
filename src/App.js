@@ -7,6 +7,7 @@ import {
   PageNotFound,
   Dashboard,
   Trash,
+  Archive,
 } from "./pages";
 import { NavBar, Footer, SideNavBar, Loader } from "./components";
 import { Redirect, PrivateRoute } from "./router";
@@ -36,7 +37,7 @@ const App = () => {
 
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/archive" element={<h1>Archive</h1>} />
+            <Route path="/archive" element={<Archive />} />
             <Route path="/trash" element={<Trash />} />
           </Route>
 

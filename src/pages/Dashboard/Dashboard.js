@@ -10,7 +10,7 @@ import {
 } from "react-icons/md";
 import { useState } from "react";
 import { defaultNewNoteData } from "../../components/Note/defaultNewNoteData";
-import { moveToTrash } from "../../utils/noteServerCalls";
+import { moveToTrash, moveToArchive } from "../../utils/noteServerCalls";
 
 export const Dashboard = () => {
   const {
@@ -40,7 +40,8 @@ export const Dashboard = () => {
     },
     {
       icon: <MdOutlineArchive size={20} />,
-      onClickAction: () => console.log("archive click"),
+      onClickAction: (note) =>
+        moveToArchive(note, dispatchData, setIsLoading, token),
       title: "Archive",
     },
     {
