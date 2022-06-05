@@ -1,7 +1,7 @@
 import "../../styles/navbar.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts";
+import { useAuth, useData } from "../../contexts";
 import { userLogout } from "../../utils/authenticationCalls";
 import { Hamburger } from "../Hamburger/Hamburger";
 import { SideBar } from "./SideBar";
@@ -9,6 +9,7 @@ import { SideBar } from "./SideBar";
 export const NavBar = ({ title, logo }) => {
   const { authState, dispatchAuth } = useAuth();
   const [showSideBar, setShowSideBar] = useState(false);
+  const { dispatchData } = useData();
 
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ export const NavBar = ({ title, logo }) => {
           {authState.token ? (
             <button
               className="btn btn-primary"
-              onClick={() => userLogout(dispatchAuth, navigate)}
+              onClick={() => userLogout(dispatchAuth, dispatchData, navigate)}
             >
               Logout
             </button>
@@ -43,6 +44,7 @@ export const NavBar = ({ title, logo }) => {
         <SideBar
           setShowSideBar={setShowSideBar}
           userLogout={userLogout}
+          dispatchData={dispatchData}
           dispatchAuth={dispatchAuth}
           authState={authState}
         />

@@ -5,6 +5,7 @@ import { MdClose } from "react-icons/md";
 export const SideBar = ({
   setShowSideBar,
   userLogout,
+  dispatchData,
   dispatchAuth,
   authState,
 }) => {
@@ -27,7 +28,11 @@ export const SideBar = ({
         </div>
         <div className="side-bar-item" style={{ justifySelf: "flex-end" }}>
           {authState.token ? (
-            <div onClick={() => userLogout(dispatchAuth, navigate)}>Logout</div>
+            <div
+              onClick={() => userLogout(dispatchAuth, dispatchData, navigate)}
+            >
+              Logout
+            </div>
           ) : (
             <Link to="/login">Login</Link>
           )}

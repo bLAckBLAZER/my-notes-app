@@ -27,6 +27,7 @@ export const userLogin = async (
       setLocalStorage("user", foundUser, true);
 
       dispatchData({ type: "SET_ALL_NOTES", payload: foundUser.notes });
+      dispatchData({ type: "SET_TRASH", payload: foundUser.trash });
 
       navigate(gotoPath);
     }
@@ -35,12 +36,13 @@ export const userLogin = async (
   }
 };
 
-export const userLogout = (dispatchAuth, navigate) => {
+export const userLogout = (dispatchAuth, dispatchData, navigate) => {
   try {
     removeLocalStorage("token");
     removeLocalStorage("user");
 
     dispatchAuth({ type: "LOGOUT" });
+    dispatchData({ type: "RESET" });
     navigate("/");
   } catch {
     throw new Error("Logout failed");
@@ -73,6 +75,7 @@ export const userSignup = async (
       setLocalStorage("user", foundUser, true);
 
       dispatchData({ type: "SET_ALL_NOTES", payload: foundUser.notes });
+      dispatchData({ type: "SET_TRASH", payload: foundUser.trash });
 
       navigate("/");
     }

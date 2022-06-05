@@ -1,6 +1,13 @@
 import "./styles/index.css";
 import { Routes, Route } from "react-router-dom";
-import { Homepage, Login, Signup, PageNotFound, Dashboard } from "./pages";
+import {
+  Homepage,
+  Login,
+  Signup,
+  PageNotFound,
+  Dashboard,
+  Trash,
+} from "./pages";
 import { NavBar, Footer, SideNavBar, Loader } from "./components";
 import { Redirect, PrivateRoute } from "./router";
 import Logo from "./assets/images/notes-logo.png";
@@ -30,7 +37,7 @@ const App = () => {
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/archive" element={<h1>Archive</h1>} />
-            <Route path="/trash" element={<h1>Trash</h1>} />
+            <Route path="/trash" element={<Trash />} />
           </Route>
 
           <Route
