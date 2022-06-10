@@ -1,0 +1,9 @@
+.filters #filter-box:hover {
+  cursor: pointer;
+  background-color: var(--default-hover-background);
+  border-radius: var(--radius);
+}
+
+.filters label {
+  margin-left: 0.5rem;
+}

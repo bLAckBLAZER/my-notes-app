@@ -14,3 +14,4 @@ export { Chip } from "./Chip/Chip";
 export { LabelBox } from "./Labels/LabelBox";
 export { Label } from "./Labels/Label";
 export { ColorBox } from "./ColorBox/ColorBox";
+export { FilterBox } from "./FilterBox/FilterBox";
