@@ -18,7 +18,7 @@ export const SideBar = ({
           <MdClose size={20} onClick={() => setShowSideBar(false)} />
         </div>
         <div className="side-bar-item">
-          <Link to="/home">Home</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </div>
         <div className="side-bar-item">
           <Link to="/archive">Archive</Link>

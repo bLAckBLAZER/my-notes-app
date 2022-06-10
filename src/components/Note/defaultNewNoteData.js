@@ -3,6 +3,6 @@ export const defaultNewNoteData = {
   noteText: "",
   isPinned: false,
   backgroundColor: "white",
-  tags: ["test-tag1", "test-tag2"],
+  tags: [],
   priority: 2, // 0 --> highest priority   2 --> lowest priority
 };

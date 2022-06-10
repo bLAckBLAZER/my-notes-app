@@ -11,6 +11,9 @@ import { Chip } from "../Chip/Chip";
 import { updateNote } from "../../utils/noteServerCalls";
 import { useAuth, useData, useLoader } from "../../contexts";
 import { moveToTrash, moveToArchive } from "../../utils/noteServerCalls";
+import { LabelBox } from "../Labels/LabelBox";
+import { useState } from "react";
+import { ColorBox } from "../ColorBox/ColorBox";
 
 export const Note = ({ note, setNewNoteData, setUpdateMode }) => {
   const date = new Date(note.updatedAt);
@@ -21,8 +24,11 @@ export const Note = ({ note, setNewNoteData, setUpdateMode }) => {
   } = useAuth();
   const { setIsLoading } = useLoader();
 
+  const [showLabelBox, setShowLabelBox] = useState(false);
+  const [showColorBox, setShowColorBox] = useState(false);
+
   return (
-    <div className="note-box">
+    <div className="note-box" style={{ backgroundColor: note.backgroundColor }}>
       <div className="flex flex-col gap-1">
         <div className="flex justify-between align-ctr">
           <div className="note-title">{note.title}</div>
@@ -51,12 +57,24 @@ export const Note = ({ note, setNewNoteData, setUpdateMode }) => {
             {date.toLocaleDateString() + " " + date.toLocaleTimeString()}
           </small>
           <div className="flex justtify-between align-ctr gap-1">
-            <i title="Color" onClick={() => console.log("color click")}>
+            <i
+              title="Color"
+              onClick={() => setShowColorBox(!showColorBox)}
+              className="pos-rel"
+            >
               <MdOutlineColorLens size={20} />
+              {showColorBox && <ColorBox note={note} />}
             </i>
-            <i title="Label" onClick={() => console.log("label click")}>
+
+            <i
+              title="Label"
+              onClick={() => setShowLabelBox(!showLabelBox)}
+              className="pos-rel"
+            >
               <MdLabelOutline size={20} />
+              {showLabelBox && <LabelBox note={note} />}
             </i>
+
             <i
               title="Archive"
               onClick={() =>

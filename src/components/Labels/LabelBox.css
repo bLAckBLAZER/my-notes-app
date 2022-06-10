@@ -1,0 +1,15 @@
+.label-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label-box input[type="checkbox"] {
+  accent-color: var(--primary-color);
+}
+
+.label-box .btn {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
