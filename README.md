@@ -1,3 +1,30 @@
+# Subtle Notes - Your modern Note taking app!
+
+Check it out [here](https://subtle-notes.netlify.app/)
+
+
+## Description
+
+This app contains below features as of now:
+
+* User authentication (Login, Logout and Signup)
+* Add/Edit/Delete a Note
+* Archive Feature
+* Trash feature
+* Add multiple tags to each note
+* Add colors to each note
+* Filter and Sort note based on tags, color or creation date
+
+
+## Tech stack used
+
+* React
+* HTML / CSS
+* Subtle UI - Own component library
+* React Router
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
