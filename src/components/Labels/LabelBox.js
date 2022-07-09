@@ -23,6 +23,8 @@ export const LabelBox = ({ note }) => {
   const [newLabelText, setNewLabelText] = useState("");
 
   const addNewLabelHandler = (label) => {
+    if (label.length === 0) return;
+
     updateNote(
       { ...note, tags: note.tags.concat(label) },
       dispatchData,
@@ -66,7 +68,9 @@ export const LabelBox = ({ note }) => {
             Cancel
           </button>
           <button
-            className="btn btn-primary width-100"
+            className={`btn btn-primary width-100 ${
+              newLabelText.length === 0 ? "disabled" : ""
+            }`}
             onClick={() => addNewLabelHandler(newLabelText)}
           >
             Add
